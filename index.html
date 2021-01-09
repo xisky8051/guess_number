@@ -39,35 +39,23 @@
       const result = document.querySelector("p");
       let num;
       nextValue();
+
       btn.onclick = (e) => {
         let val = parseInt(tx.value);
-        // if (val == num) {
-        //   console.log(`正確答案：${num}`);
-        // } else {
-        //   if (val > num) {
-        //     console.log(`${val} is too big`);
-        //   } else {
-        //     console.log(`${val} is too small`);
-        //   }
-        // }
-
         tx.value = ``;
         tx.focus();
 
         if (!val) {
-          // console.log(`Input something, please`);
           show(`Input something, please`);
           return;
         }
 
         if (val > 100 || val < 1) {
-          // console.log(`Input 1 ~ 100, please`);
           show(`Input 1 ~ 100, please`);
           return;
         }
 
         if (val === num) {
-          // console.log(`${val} is TRUE`);
           show(`${val} is TRUE`);
           result.style.color = `green`;
           nextValue();
@@ -75,13 +63,11 @@
         }
 
         if (val > num) {
-          // console.log(`${val} is too big`);
           show(`${val} is too big`);
           return;
         }
 
         if (val < num) {
-          // console.log(`${val} is too small`);
           show(`${val} is too small`);
           return;
         }
