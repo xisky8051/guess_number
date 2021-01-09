@@ -30,8 +30,10 @@
     <input type="text" />
     <button>Guess</button>
     <script>
-      document.querySelector("button").onclick = (e) => {
-        console.log(`test`);
+      let tx = document.querySelector(`input`);
+      let btn = document.querySelector("button");
+      btn.onclick = (e) => {
+        console.log(tx.value);
       };
     </script>
   </body>
