@@ -27,6 +27,7 @@
   </head>
   <body>
     <form action="javascript:;">
+      <!-- <form action=""> -->
       <h1>Guess Number</h1>
       請輸入一個介於 1 到 100 的整數：<br />
       <input type="text" />
@@ -57,7 +58,6 @@
 
         if (val === num) {
           show(`${val} is TRUE`);
-          result.style.color = `green`;
           nextValue();
           return;
         }
@@ -78,7 +78,6 @@
       }
 
       function nextValue() {
-        result.style.color = `red`;
         num = parseInt(Math.random() * 100) + 1;
         console.log(num);
       }
