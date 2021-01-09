@@ -26,15 +26,76 @@
     </style>
   </head>
   <body>
-    <h1>Guess Number</h1>
-    <input type="text" />
-    <button>Guess</button>
+    <form action="javascript:;">
+      <h1>Guess Number</h1>
+      請輸入一個介於 1 到 100 的整數：<br />
+      <input type="text" />
+      <button>Guess</button>
+      <p></p>
+    </form>
     <script>
-      let tx = document.querySelector(`input`);
-      let btn = document.querySelector("button");
+      const tx = document.querySelector(`input`);
+      const btn = document.querySelector("button");
+      const result = document.querySelector("p");
+      let num;
+      nextValue();
       btn.onclick = (e) => {
-        console.log(tx.value);
+        let val = parseInt(tx.value);
+        // if (val == num) {
+        //   console.log(`正確答案：${num}`);
+        // } else {
+        //   if (val > num) {
+        //     console.log(`${val} is too big`);
+        //   } else {
+        //     console.log(`${val} is too small`);
+        //   }
+        // }
+
+        tx.value = ``;
+        tx.focus();
+
+        if (!val) {
+          // console.log(`Input something, please`);
+          show(`Input something, please`);
+          return;
+        }
+
+        if (val > 100 || val < 1) {
+          // console.log(`Input 1 ~ 100, please`);
+          show(`Input 1 ~ 100, please`);
+          return;
+        }
+
+        if (val === num) {
+          // console.log(`${val} is TRUE`);
+          show(`${val} is TRUE`);
+          result.style.color = `green`;
+          nextValue();
+          return;
+        }
+
+        if (val > num) {
+          // console.log(`${val} is too big`);
+          show(`${val} is too big`);
+          return;
+        }
+
+        if (val < num) {
+          // console.log(`${val} is too small`);
+          show(`${val} is too small`);
+          return;
+        }
       };
+
+      function show(newValue) {
+        result.innerText = newValue;
+      }
+
+      function nextValue() {
+        result.style.color = `red`;
+        num = parseInt(Math.random() * 100) + 1;
+        console.log(num);
+      }
     </script>
   </body>
 </html>
