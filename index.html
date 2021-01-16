@@ -19,12 +19,88 @@
         border-style: none;
         padding: 7px;
       }
+      button:hover {
+        background-color: orange;
+        color: white;
+      }
     </style>
-    <script></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
   </head>
   <body>
+    <form action="javascript:;">
     <h1>Guess Number</h1>
+      請輸入一個介於 1 到 100 的整數：<br />
     <input type="text" />
     <button>Guess</button>
+      <p></p>
+    </form>
+    <script>
+      const tx = document.querySelector(`input`);
+      const btn = document.querySelector("button");
+      const result = document.querySelector("p");
+      let num;
+      nextValue();
+
+      btn.onclick = (e) => {
+        let val = parseInt(tx.value);
+        tx.value = ``;
+        tx.focus();
+
+        if (!val) {
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: `Input something, please`,
+          });
+          return;
+        }
+
+        if (val > 100 || val < 1) {
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: `Input 1 ~ 100, please`,
+          });
+          return;
+        }
+
+        if (val === num) {
+          Swal.fire({
+            icon: "success",
+            title: "Yeah !!!",
+            text: `${val} is TRUE`,
+          });
+          nextValue();
+          return;
+        }
+
+        if (val > num) {
+          Swal.fire({
+            icon: "warning",
+            title: "Oh !!!",
+            text: `${val} is too big`,
+          });
+          return;
+        }
+
+        if (val < num) {
+          Swal.fire({
+            icon: "warning",
+            title: "Oh !!!",
+            text: `${val} is too small`,
+          });
+          return;
+        }
+      };
+
+      function show(newValue) {
+        result.innerText = newValue;
+      }
+
+      function nextValue() {
+        num = parseInt(Math.random() * 100) + 1;
+        console.log(num);
+      }
+    </script>
   </body>
 </html>
