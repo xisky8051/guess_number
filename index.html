@@ -24,6 +24,7 @@
         color: white;
       }
     </style>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
   </head>
   <body>
     <form action="javascript:;">
@@ -34,92 +35,72 @@
       <p></p>
     </form>
     <script>
-            const tx = document.querySelector(`input`);
-            const btn = document.querySelector("button");
-            const result = document.querySelector("p");
-            let num;
-            nextValue();
+      const tx = document.querySelector(`input`);
+      const btn = document.querySelector("button");
+      const result = document.querySelector("p");
+      let num;
+      nextValue();
 
-            btn.onclick = (e) => {
-              let val = parseInt(tx.value);
-              tx.value = ``;
-              tx.focus();
+      btn.onclick = (e) => {
+        let val = parseInt(tx.value);
+        tx.value = ``;
+        tx.focus();
 
-              if (!val) {
-      <<<<<<< HEAD
-                Swal.fire({
-                  icon: "error",
-                  title: "Oops...",
-                  text: `Input something, please`,
-                });
-      =======
-                show(`Input something, please`);
-      >>>>>>> master
-                return;
-              }
+        if (!val) {
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: `Input something, please`,
+          });
+          return;
+        }
 
-              if (val > 100 || val < 1) {
-      <<<<<<< HEAD
-                Swal.fire({
-                  icon: "error",
-                  title: "Oops...",
-                  text: `Input 1 ~ 100, please`,
-                });
-      =======
-                show(`Input 1 ~ 100, please`);
-      >>>>>>> master
-                return;
-              }
+        if (val > 100 || val < 1) {
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: `Input 1 ~ 100, please`,
+          });
+          return;
+        }
 
-              if (val === num) {
-      <<<<<<< HEAD
-                Swal.fire({
-                  icon: "success",
-                  title: "Yeah !!!",
-                  text: `${val} is TRUE`,
-                });
-      =======
-                show(`${val} is TRUE`);
-      >>>>>>> master
-                nextValue();
-                return;
-              }
+        if (val === num) {
+          Swal.fire({
+            icon: "success",
+            title: "Yeah !!!",
+            text: `${val} is TRUE`,
+          });
+          nextValue();
+          return;
+        }
 
-              if (val > num) {
-      <<<<<<< HEAD
-                Swal.fire({
-                  icon: "warning",
-                  title: "Oh !!!",
-                  text: `${val} is too big`,
-                });
-      =======
-                show(`${val} is too big`);
-      >>>>>>> master
-                return;
-              }
+        if (val > num) {
+          Swal.fire({
+            icon: "warning",
+            title: "Oh !!!",
+            text: `${val} is too big`,
+          });
+          return;
+        }
 
-              if (val < num) {
-      <<<<<<< HEAD
-                Swal.fire({
-                  icon: "warning",
-                  title: "Oh !!!",
-                  text: `${val} is too small`,
-                });
-      =======
-                show(`${val} is too small`);
-      >>>>>>> master
-                return;
-              }
-            };
+        if (val < num) {
+          Swal.fire({
+            icon: "warning",
+            title: "Oh !!!",
+            text: `${val} is too small`,
+          });
+          return;
+        }
+      };
 
-            function show(newValue) {
-              result.innerText = newValue;
-            }
+      function show(newValue) {
+        result.innerText = newValue;
+      }
 
-            function nextValue() {
-              num = parseInt(Math.random() * 100) + 1;
-              console.log(num);
-            }
+      function nextValue() {
+        num = parseInt(Math.random() * 100) + 1;
+        console.log(num);
+      }
     </script>
   </body>
 </html>
